@@ -15,7 +15,7 @@
     <% @items.each do |item| %>
         <td><%= item_id %></td>
       <tr>
-        <td><%= link_to item_path(item.id) do %>
+        <td><%= link_to admin_item_path(item.id) do %>
         <%= item.name %>
         <% end %>
         </td>
