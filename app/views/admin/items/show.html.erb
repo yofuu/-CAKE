@@ -1,10 +1,22 @@
 <h2>商品詳細</h2>
-<p><%= @item.title %></p>
 
-<h2>本文</h2>
-<p><%= @item.body %></p>
+<p><%= @item.image %></p>
+
+<h4>商品名</h4>
+<p><%= @item.name %></p>
+
+<h4>商品説明</h4>
+<p><%= @item.introduction %></p>
+
+<!--<h4>ジャンル</h4>-->
+<!--<p></%= @item.gener_id %></p>-->
+
+<h4>税込価格(税抜価格)</h4>
+<p><%= @item.price %></p>
+
+<h4>販売ステータス</h4>
+<p><%= @item.is_active %></p>
 
 
 
-<%= link_to "Edit", edit_book_path(@books.id) %>
-<%= link_to "Back", books_path %>
+<%= link_to "編集する", edit_admin_item_path(@item.id) %>

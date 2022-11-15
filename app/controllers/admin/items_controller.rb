@@ -19,7 +19,11 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-    @item = Book.find(params[:id])
+    @item = Item.find(params[:id])
+  end
+  
+  def edit
+    @item = Item.find(params[:id])
   end
 
   private

@@ -13,14 +13,14 @@
 
   <tbody>
     <% @items.each do |item| %>
-        <td><%= item_id %></td>
+        <td><%= item.id %></td>
       <tr>
         <td><%= link_to admin_item_path(item.id) do %>
         <%= item.name %>
         <% end %>
         </td>
-        <td><%= item.prise %></td>
-        <td><%= item.gener_id %></td>
+        <td><%= item.price %></td>
+        <td><%= item.genre_id %></td>
         <td><%= item.is_active %></td>
       </tr>
     <% end %>
