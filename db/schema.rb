@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 2022_11_15_095948) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_addresses_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_addresses_on_reset_password_token", unique: true
   end
 
   create_table "admins", force: :cascade do |t|
@@ -86,6 +93,9 @@ ActiveRecord::Schema.define(version: 2022_11_15_095948) do
     t.string "telephone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.boolean "is_deleted", default: false
   end
 
@@ -93,13 +103,6 @@ ActiveRecord::Schema.define(version: 2022_11_15_095948) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.index ["email"], name: "index_genres_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_genres_on_reset_password_token", unique: true
   end
 
   create_table "items", force: :cascade do |t|
@@ -110,6 +113,13 @@ ActiveRecord::Schema.define(version: 2022_11_15_095948) do
     t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_items_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_items_on_reset_password_token", unique: true
   end
 
   create_table "order_details", force: :cascade do |t|
