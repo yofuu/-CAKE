@@ -12,8 +12,19 @@
 
   <tbody>
     <% @orders.each do |order| %>
-        <td><%= order.created_at %></td>
-      
+      <tr>
+        <td><%= link_to admin_customer_path(item.id) do %>
+          <%= order.created_at %></td>
+        <td><%= customer.name %></td>
+        <td><%= order.amount %></td>
+        <td><%= order.order_status %></td>
+        <td><% if order.order_status==true %>
+            
+            <% else %>
+            
+            <% end %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
