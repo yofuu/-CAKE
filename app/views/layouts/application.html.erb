@@ -1,16 +1,70 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cake</title>
+    <title>About</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+              <%= link_to  "LOGO",root_path , class:"nav-link text-light" %>
+             <div class="navbar-collapse collapse" id="navbarNavDropdown" style>
+              <% if customer_signed_in? %>
+               <ul class="navbar-nav ml-auto">
+                 <li>
+                  <%= link_to "マイページ", root_path %>
+
+                 </li>
+                <li>
+                  <%= link_to "商品一覧", root_path %>
+
+                 </li>
+                 <li>
+                  <%= link_to "カート", root_path %>
+
+                 </li>
+                 <li>
+                  <%= link_to root_path,class: 'nav-link text-light' do %>
+                    <i class="fas fa-sign-out-alt"></i>ログアウト
+                  <% end %>
+                 </li>
+               </ul>
+              <% else %>
+               <ul class="navbar-nav ml-auto">
+                 <li>
+                 <%= link_to "About", root_path %>
+
+                 </li>
+                  <li>
+                  <%= link_to "商品一覧", root_path %>
+
+                 </li>
+                 <li>
+                  <%= link_to "新規登録", root_path %>
+
+                 </li>
+                 <li>
+                  <%= link_to "ログアウト", root_path %>
+
+                 </li>
+               </ul>
+              <% end %>
+             </div>
+          </div>
+       </nav>
+
+    </header>
+    <%= flash[:notice] %>
+    <div class="container mt-5">
+            <div class="row">
+
     <%= yield %>
-  </body>
-</html>
+            </div>
+    </div>

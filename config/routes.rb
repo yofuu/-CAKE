@@ -8,6 +8,13 @@ Rails.application.routes.draw do
   # devise_for :admins
   # devise_for :addresses
 
+  get 'about'=>'public/homes#about',as:'about'
+  root to: 'public/homes#top'
+  scope module: :public do
+  resources :items
+  resources :customers
+  end
+
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
