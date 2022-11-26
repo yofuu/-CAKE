@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   scope module: :public do
   resources :items
   resources :customers
+  get 'unsubscribe'=>'public/customers#unsubscribe',as:'customers/unsubscribe'
   end
 
    namespace :admin do

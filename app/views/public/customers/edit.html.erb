@@ -1,8 +1,10 @@
 <h2>会員情報編集</h2>
 
+<%= form_with model: @customer, url:customer_path(@customer.id), method: :patch do |f|%>
+
 氏名 <%= f.text_field :last_name %>
      <%= f.text_field :first_name %>
-     
+
 フリガナ <%= f.text_field :last_name_kana %>
          <%= f.text_field :first_name_kana %>
 
@@ -16,5 +18,6 @@
 
 <%= f.submit '編集内容を保存' %>
 
-<%= f.submit '退会する' %>
-  
+<% end %>
+
+<%= link_to '退会する' %>
