@@ -14,7 +14,9 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= link_to admin_customer_path(item.id) do %>
-          <%= order.created_at %></td>
+          <%= order.created_at %>
+          <% end %>
+        </td>
         <td><%= customer.name %></td>
         <td><%= order.amount %></td>
         <td><%= order.order_status %></td>

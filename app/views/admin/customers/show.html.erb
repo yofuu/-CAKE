@@ -1,13 +1,15 @@
-<h2><%= @customer.name %>会員詳細</h2>
+<h2><%= @customer.last_name %> <%= @customer.first_name %>会員詳細</h2>
 
 <h4>会員ID</h4>
 <p><%= @customer.id %></p>
 
 <h4>氏名</h4>
-<p><%= @customer.name %></p>
+<p><%= @customer.last_name %></p>
+<p><%= @customer.first_name %></p>
 
 <h4>フリガナ</h4>
-<p><%= @customer.last_name_kana.first_name_kana %></p>
+<p><%= @customer.last_name_kana %></p>
+<p><%= @customer.first_name_kana %></p>
 
 
 <h4>郵便番号</h4>
@@ -28,4 +30,4 @@
 
 
 <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
-<%= link_to "注文履歴一覧を見る", 
+<%= link_to "注文履歴一覧を見る",

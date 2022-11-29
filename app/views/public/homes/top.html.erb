@@ -5,3 +5,18 @@
 </h4>
 
 <h2>新着情報</h2>
+
+<tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= image_tag item.image %></td>
+        <td><%= link_to admin_item_path(item.id) do %>
+        <%= item.name %>
+        <% end %>
+        </td>
+        <td><%= item.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <%= link_to "全ての商品を見る", items_path %>
