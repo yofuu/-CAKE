@@ -1,4 +1,4 @@
-<h2><%= @customer %>会員情報編集</h2>
+<h2><%= @customer.last_name %> <%= @customer.first_name %>会員情報編集</h2>
 
 
 <%= form_with model: @customer, url:admin_customer_path(@customer.id), method: :patch do |f| %>
@@ -13,7 +13,7 @@
  <h4>フリガナ</h4>
  <%= f.text_field :last_name_kana %>
  <%= f.text_field :first_name_kana %>
- <%= f.text_area : %>
+ <%#= f.text_area  %>
 
  <h4>郵便番号</h4>
  <%= f.text_field :postal_code %>
