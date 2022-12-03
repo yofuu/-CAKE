@@ -3,13 +3,19 @@
 <h4>登録情報</h4>
 <%= link_to "編集する", edit_customer_path(@customer.id) %>
 
-氏名 <%= @customer.name %>
-カナ <%= @customer.last_name_kana.first_name_kana %>
+氏名 <%= @customer.last_name + " " +@customer.first_name %>
+
+カナ <%= @customer.last_name_kana + " " + @customer.first_name_kana %>
+
 郵便番号 <%= @customer.postal_code %>
+
 住所 <%= @customer.address %>
+
 電話番号 <%= @customer.telephone_number %>
+
 メールアドレス <%= @customer.email %>
 
 <h4>配送先</h4>
-
+<%= link_to "一覧を見る", addresses_path %>
 <h4>注文履歴</h4>
+<%= link_to "一覧を見る", orders_path %>
