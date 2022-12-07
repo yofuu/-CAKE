@@ -1,4 +1,4 @@
-<%= form_with model: @item, url:item_path(@item.id), method: :get do |f|%>
+<%= form_with model: @cart_item, url:cart_items_path do |f|%>
 <p><%= @item.image %></p>
 
 <h4>商品名</h4>
@@ -12,7 +12,11 @@
 
 <h4>個数選択</h4>
 <p><%= f.select :amount, *[1..9] %></p>
+
+<%= f.hidden_field :item_id  , :value => @item.id%>
+
+
+
+<%= f.submit "カートに入れる" %>
+
 <% end %>
-
-
-<%= link_to "カートに入れる", item_path(@item.id) %>

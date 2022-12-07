@@ -1,1 +1,7 @@
 <h2>注文情報入力</h2>
+
+<%= form_with model: @, url:cart_items_path do |f|%>
+
+<h4>支払方法</h4>
+<%= f.radio_button :is_active, true %>クレジットカード
+ <%= f.radio_button :is_active, false %>銀行振込

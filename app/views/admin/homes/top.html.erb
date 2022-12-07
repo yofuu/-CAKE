@@ -1,4 +1,4 @@
-<h4>注文履歴</h4>
+<h4>注文履歴一覧</h4>
 
 <table>
   <thead>
@@ -21,9 +21,9 @@
         <td><%= order.amount %></td>
         <td><%= order.order_status %></td>
         <td><% if order.order_status==true %>
-
+            有効
             <% else %>
-
+            退会
             <% end %>
         </td>
       </tr>

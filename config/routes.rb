@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :cart_items
   resources :addresses
   get 'customers/unsubscribe'=>'customers#unsubscribe'
+  delete 'cart_items/destroy_all'=>'cart_items#destroy_all'
   end
 
    namespace :admin do
