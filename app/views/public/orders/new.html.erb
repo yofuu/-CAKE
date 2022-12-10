@@ -3,5 +3,9 @@
 <%= form_with model: @, url:cart_items_path do |f|%>
 
 <h4>支払方法</h4>
-<%= f.radio_button :is_active, true %>クレジットカード
- <%= f.radio_button :is_active, false %>銀行振込
+<%= f.radio_button :payment_method, 0 %>クレジットカード
+ <%= f.radio_button :payment_method, 1 %>銀行振込
+
+ <h2>お届け先</h2>
+ <%= f.radio_button :current_customer.address %>ご自身の住所
+ 
