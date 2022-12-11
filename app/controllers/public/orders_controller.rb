@@ -4,6 +4,10 @@ class Public::OrdersController < ApplicationController
    @order = Order.find(params[:id])
   end
 
+  def new
+      @addresses = current_customer.addresses
+  end
+
   private
   def order_params
       params.require(:order).permit(:shipping_addrress, :shipping_name, :postage, :billing_amount, :payment_method, :order_status)
