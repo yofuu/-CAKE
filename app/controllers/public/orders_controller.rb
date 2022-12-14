@@ -7,6 +7,9 @@ class Public::OrdersController < ApplicationController
   def new
       @addresses = current_customer.addresses
   end
+  
+  def confirm
+  end
 
   private
   def order_params

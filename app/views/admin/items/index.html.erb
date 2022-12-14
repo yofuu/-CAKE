@@ -1,6 +1,9 @@
 <h4>商品一覧</h4>
-
+<div class="container">
+<div class="row">
+<div class="col-mg-1">
 <table>
+
   <thead>
     <tr>
       <th>商品ID</th>
@@ -10,11 +13,10 @@
       <th>ステータス</th>
     </tr>
   </thead>
-
   <tbody>
     <% @items.each do |item| %>
-        <td><%= item.id %></td>
       <tr>
+        <td><%= item.id %></td>
         <td><%= link_to admin_item_path(item.id) do %>
         <%= item.name %>
         <% end %>
@@ -29,5 +31,9 @@
         </td>
       </tr>
     <% end %>
+  <%= link_to "新規作成", new_admin_item_path %>
   </tbody>
 </table>
+</div>
+</div>
+</div>
