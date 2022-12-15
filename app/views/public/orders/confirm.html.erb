@@ -1,5 +1,5 @@
 <h4>注文確認確認</h4>
-
+<div class="col">
 <table>
   <thead>
     <tr>
@@ -11,18 +11,27 @@
   </thead>
 
   <tbody>
-    <% @orders.each do |order| %>
+    <% @cart_items.each do |cart_item| %>
       <tr>
-        <td><%= image_tag order.item.get_image %></td>
-        <td><%= order.item.name %></td>
-        <td><%= order.item.with_tax_price %></td>
-        <td><%= order.billing_amount %></td>
-        <td><%= order.subtotal %></td>
+        <td><%= image_tag cart_item.item.get_image %></td>
+        <td><%= cart_item.item.name %></td>
+        <td><%= cart_item.item.with_tax_price %></td>
+        <td><%= cart_item.subtotal %></td>
       </tr>
+      <% @total +=  cart_item.subtotal %>
     <% end %>
-
-    <div>送料<%= @order.postage %></div>
-    <div>商品合計<% @total +=  order.subtotal %></div>
-    <div>請求金額<%= @order.billing_amount %></div>
   </tbody>
-</table>
+  </table>
+    <div>送料<%= @order.postage %></div>
+    <div>商品合計<%= @total %></div>
+    <div>請求金額<%= @order.billing_amount %></div>
+
+  <h4>支払方法</h4>
+  <%= @order.payment_method %>
+
+  <h4>お届け先</h4>
+  〒<%= @order.shipping_postal_code %><%= @order.shipping_addrress %><%= @order.shipping_name %>
+
+  <%= link_to "確定する", orders_complete_path %>
+
+ </div>
