@@ -25,7 +25,12 @@
 <p><%= @customer.email %></p>
 
 <h4>会員ステータス</h4>
-<p><%= @customer.is_deleted %></p>
+<p><% if @customer.is_deleted==true %>
+        販売停止中
+      <% else %>
+        販売中
+      <% end %>
+</p>
 
 
 

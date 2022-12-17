@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   scope module: :public do
   resources :items
+  get 'orders/complete'=>'orders#complete'
+  post 'orders/confirm'=>'orders#confirm', as:'confirm'
   get 'customers/mypage' => 'customers#show', as:'mypage'
   get 'customers/information/edit' => 'customers#edit', as:'customer_edit'
   patch 'customers/information' => 'customers#update', as:'information'
@@ -31,8 +33,7 @@ Rails.application.routes.draw do
   resources :addresses
   get 'customers/unsubscribe'=>'customers#unsubscribe'
   delete 'cart_items/destroy_all'=>'cart_items#destroy_all'
-  get 'orders/complete'=>'orders#complete'
-  post 'orders/confirm'=>'orders#confirm', as:'confirm'
+  patch 'customers/withdraw'=>'customers#withdraw'
   end
 
    namespace :admin do

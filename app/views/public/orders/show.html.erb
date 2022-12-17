@@ -1,0 +1,50 @@
+<h4>注文履歴詳細</h4>
+
+<h7>注文情報</h7>
+
+  <h7>注文日</h7>
+  <p><%= @order.created_at %></p>
+
+  <h7>配送先</h7>
+  <p><%= order.shipping_addrress %></p>
+
+  <h7>支払方法</h7>
+  <p><%= @order.payment_method_i18n %></p>
+
+  <h7>ステータス</h7>
+  <p><%= @customer.postal_code %></p>
+
+<h7>請求情報</h7>
+
+  <h7>商品合計</h7>
+  <p><%= @total %></p>
+
+  <h7>配送料</h7>
+  <p><%= @order.postage %></p>
+
+  <h7>ご請求額</h7>
+  <p><%= @order.billing_amount %></p>
+
+<h7>注文内容</h7>
+
+  <table>
+  <thead>
+    <tr>
+      <th>商品</th>
+      <th>単価(税込)</th>
+      <th>個数</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.item.name %></td>
+        <td><%= order.item.with_tax_price %></td>
+        <td><%= order.amount %></td>
+        <td><%= order.cart_item.subtotal %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

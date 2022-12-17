@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :customer_state, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -34,9 +34,12 @@ def customer_state
   ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
   if @customer.valid_password?(params[:customer][:password])
     ## 【処理内容3】
-    true
+    if @customer.is_deleted
+      redirect_to new_customer_registration_path
+    else
+    end
   else
-    
+
   end
 end
 end

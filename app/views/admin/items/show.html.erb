@@ -1,26 +1,38 @@
 <h2>商品詳細</h2>
 
 <p><%= image_tag @item.get_image %></p>
+<table>
+<thead>
+  <tr>
+  <th>商品名</th>
+  <th>商品説明</th>
+  <th>税込価格(税抜価格)</th>
+  <th>販売ステータス<th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+   <th><%= @item.name %></th>
 
-<h4>商品名</h4>
-<p><%= @item.name %></p>
 
-<h4>商品説明</h4>
-<p><%= @item.introduction %></p>
+   <th><%= @item.introduction %></th>
 
 <!--<h4>ジャンル</h4>-->
 <!--<p></%= @item.gener_id %></p>-->
 
-<h4>税込価格(税抜価格)</h4>
-<p><%= @item.price %></p>
 
-<h4>販売ステータス</h4>
-<p><% if @item.is_active==true %>
-     販売中
-    <% else %>
-     販売停止中
-    <% end %>
-</p>
+   <th><%= @item.price %></th>
+
+
+   <th><% if @item.is_active==true %>
+        販売中
+      <% else %>
+        販売停止中
+      <% end %>
+   </th>
+  </tr>
+</tbody>
+</table>
 
 
 

@@ -7,8 +7,17 @@ class Public::CartItemsController < ApplicationController
    def create
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
-      @cart_item.save
-        redirect_to cart_items_path
+    #   1. 追加した商品がカート内に存在するかの判別
+    # 存在した場合
+      if item = current_customer.cart_items.find_by(item_id: @cart_item.item_id)
+    #   2. カート内の個数をフォームから送られた個数分追加する
+         item.update(amount: item.amount + @cart_item.amount)
+      else
+    # 存在しなかった場合
+         @cart_item.save
+    #   カートモデルにレコードを新規作成する
+      end
+      redirect_to cart_items_path
    end
 
    def update
