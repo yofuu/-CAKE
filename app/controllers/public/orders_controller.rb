@@ -7,16 +7,19 @@ class Public::OrdersController < ApplicationController
       @addresses = current_customer.addresses
       @order = Order.new
   end
-  
+
   def show
-    @order.postage = 500
-    
+    @order = Order.find(params[:id])
+
   end
 
   def confirm
       @order = Order.new(order_params)
       @cart_items = current_customer.cart_items
       @total = 0
+      current_customer.cart_items.each do |cart_item|
+        @total += cart_item.item.with_tax_price * cart_item.amount
+      end
       @order.postage = 500
       @order.billing_amount = @order.postage + @total
       if params[:order][:address]=="0"
@@ -37,7 +40,17 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
+    @order.order_status = 0
     @order.save
+    current_customer.cart_items.each do |cart_item|
+      @order.order_details.create!(
+        item_id:cart_item.item_id,
+        purchase_price:cart_item.item.with_tax_price,
+        amount:cart_item.amount,
+        production_status: :nyuukinnmachi
+        )
+    end
+    current_customer.cart_items.destroy_all
     redirect_to orders_complete_path
   end
 

@@ -4,7 +4,8 @@ class Order < ApplicationRecord
   # devise :database_authenticatable, :registerable,
   #       :recoverable, :rememberable, :validatable
   belongs_to :customer
-  
+  has_many :order_details
+
   enum payment_method: { credit_card: 0, transfer: 1 }
 
   enum order_status: {

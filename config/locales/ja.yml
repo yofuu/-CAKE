@@ -4,3 +4,13 @@
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
+
+  # ja:
+  #   enums:
+  #     order:
+  #       order_status:
+  #         nyuukinnmachi: "入金待ち"
+  #         nyuukinnkakuninn: "入金確認"
+  #         seisakuchuu: "制作中"
+  #         hassouzyunnbichuu: "発送準備中"
+  #         hassouzumi: "発送済み"

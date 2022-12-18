@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   #       :recoverable, :rememberable, :validatable
   has_one_attached :image
   has_many :cart_items, dependent: :destroy
+  has_many :order_details
 
   def get_image
     unless image.attached?
