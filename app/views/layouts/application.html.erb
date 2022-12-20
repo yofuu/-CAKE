@@ -14,7 +14,7 @@
     <header>
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
-              <%= link_to  "LOGO",root_path , class:"nav-link text-light" %>
+              <font size="5" color="white">LOGO</font>
              <div class="navbar-collapse collapse" id="navbarNavDropdown" style>
               <% if customer_signed_in? %>
                <ul class="navbar-nav ml-auto">
@@ -22,7 +22,7 @@
                   <%= link_to "マイページ", mypage_path %>
 
                  </li>
-                <li>
+                 <li>
                   <%= link_to "商品一覧", items_path %>
 
                  </li>
@@ -32,6 +32,25 @@
                  </li>
                  <li>
                   <%= link_to "ログアウト", destroy_customer_session_path,method: :delete %>
+                 </li>
+               </ul>
+              <% elsif admin_signed_in? %>
+               <ul class="navbar-nav ml-auto">
+                 <li>
+                  <%= link_to "商品一覧", admin_items_path %>
+
+                 </li>
+                 <li>
+                  <%= link_to "会員一覧", admin_customers_path %>
+
+                 </li>
+                 <li>
+                  <%= link_to "注文履歴一覧", admin_root_path %>
+
+                 </li>
+                 <li>
+                  <%= link_to "ログアウト", destroy_admin_session_path,method: :delete %>
+
                  </li>
                </ul>
               <% else %>

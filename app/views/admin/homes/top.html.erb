@@ -18,9 +18,13 @@
           <% end %>
         </td>
         <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-        <td><%= order.order_details.amount %></td>
-        <td><%= order.order_status %></td>
-        <td><%= Order.order_statuses_i18n[@order.order_status] %></td>
+        <td><%  order.order_details.each do | order_detail| %>
+            <% @amount += order_detail.amount %>
+            <% end %>
+            <%= @amount %>
+            <% @amount = 0 %>
+        </td>
+        <td><%= Order.order_statuses_i18n[order.order_status] %></td>
       </tr>
     <% end %>
   </tbody>
