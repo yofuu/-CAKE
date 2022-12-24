@@ -60,3 +60,4 @@ gem 'net-smtp'
 gem 'image_processing'
 gem 'kaminari','~> 1.2.1'
 gem "enum_help"
+gem 'devise-i18n'

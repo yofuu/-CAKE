@@ -1,35 +1,57 @@
+<div class = "container">
 <h2><%= @customer.last_name %> <%= @customer.first_name %>会員情報編集</h2>
-
-
+<!--<div class="row">-->
+<table>
+<tbody>
 <%= form_with model: @customer, url:admin_customer_path(@customer.id), method: :patch do |f| %>
+ <tr>
+　<td>会員ID</td>
+  <td><%= @customer.id %></td>
+ </tr>
 
-　<h4>会員ID</h4>
- <%= @customer.id %>
+ <tr>
+  <td>氏名</td>
+  <td><%= f.text_field :last_name %>
+      <%= f.text_field :first_name %>
+  </td>
+ </tr>
 
-  <h4>氏名</h4>
-  <%= f.text_field :last_name %>
-  <%= f.text_field :first_name %>
+ <tr>
+  <td>フリガナ</td>
+  <td><%= f.text_field :last_name_kana %>
+      <%= f.text_field :first_name_kana %>
+  </td>
+ </tr>
 
- <h4>フリガナ</h4>
- <%= f.text_field :last_name_kana %>
- <%= f.text_field :first_name_kana %>
- <%#= f.text_area  %>
+ <tr>
+  <td>郵便番号</td>
+  <td><%= f.text_field :postal_code %></td>
+ </tr>
 
- <h4>郵便番号</h4>
- <%= f.text_field :postal_code %>
+ <tr>
+  <td>住所</td>
+  <td><%= f.text_field :address %></td>
+ </tr>
 
- <h4>住所</h4>
- <%= f.text_field :address %>
+ <tr>
+  <td>電話番号</td>
+  <td><%= f.text_field :telephone_number %></td>
+ </tr>
 
- <h4>電話番号</h4>
- <%= f.text_field :telephone_number %>
+ <tr>
+  <td>メールアドレス</td>
+  <td><%= f.text_field :email %></td>
+ </tr>
 
- <h4>メールアドレス</h4>
- <%= f.text_field :email %>
-
- <h4>会員ステータス</h4>
- <%= f.radio_button :is_deleted, false %>有効
- <%= f.radio_button :is_deleted, true %>退会
+ <tr>
+  <td>会員ステータス</td>
+  <td><%= f.radio_button :is_deleted, false %>有効
+      <%= f.radio_button :is_deleted, true %>退会
+  </td>
+ </tr>
+</tbody>
+</table>
 
  <%= f.submit '変更を保存' %>
 <% end %>
+</div>

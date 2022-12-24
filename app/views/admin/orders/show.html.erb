@@ -1,32 +1,39 @@
+<div class = "container">
+
 <h4>注文履歴詳細</h4>
-
+<div class = "row">
  <table>
-  <thead>
-    <tr>
-      <th>購入者</th>
-      <th>注文日</th>
-      <th>配送先</th>
-      <th>支払方法</th>
-      <th>注文ステータス</th>
-    </tr>
-  </thead>
-
   <tbody>
       <tr>
+        <td>購入者</td>
         <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+      </tr>
+      <tr>
+        <td>注文日</td>
         <td><%= @order.created_at %></td>
+      </tr>
+      <tr>
+        <td>配送先</td>
         <td>〒<%= @order.shipping_postal_code %><%= @order.shipping_addrress %><%= @order.shipping_name %></td>
+      </tr>
+      <tr>
+        <td>支払方法</td>
         <td><%= @order.payment_method_i18n %></td>
+      </tr>
+      <tr>
+        <td>注文ステータス</td>
         <td>
           <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f|%>
           <%= f.select :order_status, [[Order.order_statuses_i18n[:nyuukinnmachi],:nyuukinnmachi],[Order.order_statuses_i18n[:nyuukinnkakuninn],:nyuukinnkakuninn],[Order.order_statuses_i18n[:seisakuchuu],:seisakuchuu],[Order.order_statuses_i18n[:hassouzyunnbichuu],:hassouzyunnbichuu],[Order.order_statuses_i18n[:hassouzumi],:hassouzumi]] %>
           <%= f.submit "変更する" %>
           <% end %>
-        </td>
+      </td>
       </tr>
   </tbody>
  </table>
-
+</div>
+<div class = "row">
+<div class = "col-lg-6">
  <table>
   <thead>
     <tr>
@@ -47,3 +54,18 @@
     <% end %>
   </tbody>
  </table>
+</div>
+<div class = "col-lg-6">
+<h7>請求情報</h7>
+
+  <h7>商品合計</h7>
+  <p><%= @total %></p>
+
+  <h7>配送料</h7>
+  <p><%= @order.postage %></p>
+
+  <h7>ご請求額</h7>
+  <p><%= @order.billing_amount %></p>
+</div>
+</div>
+</div>

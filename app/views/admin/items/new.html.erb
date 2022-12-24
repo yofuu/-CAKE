@@ -1,27 +1,40 @@
+<div class = "container">
 <h2>商品新規登録</h2>
 
-<tbody>
-<%= form_with model: @item, url:admin_items_path, method: :post do |f| %>
+<table>
+ <tbody>
+ <%= form_with model: @item, url:admin_items_path, method: :post do |f| %>
 
-　<h4>商品画像</h4>
- <%= f.file_field :image %>
+ <tr>
+  <td>商品画像</td>
+  <td><%= f.file_field :image %></td>
+ </tr>
 
-  <h4>商品名</h4>
-  <%= f.text_field :name %>
+ <tr>
+  <td>商品名</td>
+  <td><%= f.text_field :name %></td>
+ </tr>
 
- <h4>商品説明</h4>
- <%= f.text_area :introduction %>
-
+ <tr>
+  <td>商品説明</td>
+  <td><%= f.text_area :introduction %></td>
+ </tr>
  <!--<h4>ジャンル</h4>-->
  <!--</%= f.select :gener_id %>-->
 
- <h4>税抜価格</h4>
- <%= f.text_field :price %> 円
+ <tr>
+  <td>税抜価格</td>
+  <td><%= f.text_field :price %> 円</td>
+ </tr>
 
- <h4>販売ステータス</h4>
- <%= f.radio_button :is_active, true %>販売中
- <%= f.radio_button :is_active, false %>販売停止中
+ <tr>
+  <td>販売ステータス</td>
+  <td><%= f.radio_button :is_active, true %>販売中
+      <%= f.radio_button :is_active, false %>販売停止中
+  </td>
+ </tr>
  </tbody>
-
+</table>
  <%= f.submit '新規登録' %>
 <% end %>
+</div>

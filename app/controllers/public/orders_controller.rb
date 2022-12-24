@@ -1,16 +1,21 @@
 class Public::OrdersController < ApplicationController
   def index
-   @orders = current_customer.orders
+    @orders = current_customer.orders
   end
 
   def new
-      @addresses = current_customer.addresses
-      @order = Order.new
+    return redirect_to cart_items_path if current_customer.cart_items.blank?
+
+    @addresses = current_customer.addresses
+    @order = Order.new
   end
 
   def show
     @order = Order.find(params[:id])
-
+    @total = 0
+      @order.order_details.each do |order_detail|
+        @total += order_detail.purchase_price * order_detail.amount
+      end
   end
 
   def confirm

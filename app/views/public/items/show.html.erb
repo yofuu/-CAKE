@@ -1,5 +1,5 @@
 <%= form_with model: @cart_item, url:cart_items_path do |f|%>
-<p><%= @item.image %></p>
+<p><%= image_tag @item.get_image %></p>
 
 <h4>商品名</h4>
 <p><%= @item.name %></p>
@@ -8,7 +8,7 @@
 <p><%= @item.introduction %></p>
 
 <h4>価格(税込)</h4>
-<p><%= @item.price %></p>
+<p>¥<%= @item.with_tax_price %></p>
 
 <h4>個数選択</h4>
 <p><%= f.select :amount, *[1..9] %></p>

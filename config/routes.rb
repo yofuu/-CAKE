@@ -29,10 +29,10 @@ Rails.application.routes.draw do
   get 'customers/information/edit' => 'customers#edit', as:'customer_edit'
   patch 'customers/information' => 'customers#update', as:'information'
   resources :orders
+  delete 'cart_items/destroy_all'=>'cart_items#destroy_all'
   resources :cart_items
   resources :addresses
   get 'customers/unsubscribe'=>'customers#unsubscribe'
-  delete 'cart_items/destroy_all'=>'cart_items#destroy_all'
   patch 'customers/withdraw'=>'customers#withdraw'
   end
 
