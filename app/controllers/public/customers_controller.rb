@@ -16,6 +16,14 @@ class Public::CustomersController < ApplicationController
     end
   end
 
+  def withdraw
+    @customer = current_customer
+    if @customer.update(is_deleted: true)
+      reset_session
+    redirect_to root_path, notice:"Item was successfully updated."
+    end
+  end
+
   private
   def customers_params
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :encrypted_password, :email, :is_deleted)

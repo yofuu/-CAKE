@@ -1,23 +1,48 @@
+<div class = "container">
 <h2>会員情報編集</h2>
 
 <%= form_with model: @customer, url:information_path, method: :patch do |f| %>
-
-氏名 <%= f.text_field :last_name %>
-     <%= f.text_field :first_name %>
-
-フリガナ <%= f.text_field :last_name_kana %>
-         <%= f.text_field :first_name_kana %>
-
-郵便番号 <%= f.text_field :postal_code %>
-
-住所 <%= f.text_field :address %>
-
-電話番号 <%= f.text_field :telephone_number %>
-
-メールアドレス <%= f.text_field :email %>
-
+<table>
+    <tbody>
+        <tr>
+            <td>氏名</td>
+            <td><%= f.text_field :last_name %>
+                <%= f.text_field :first_name %>
+            </td>
+        </tr>
+        <tr>
+            <td>フリガナ</td>
+            <td><%= f.text_field :last_name_kana %>
+                <%= f.text_field :first_name_kana %>
+            </td>
+        </tr>
+        <tr>
+            <td>郵便番号</td>
+            <td><%= f.text_field :postal_code %></td>
+        </tr>
+        <tr>
+            <td>住所</td>
+            <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+            <td>電話番号</td>
+            <td><%= f.text_field :telephone_number %></td>
+        </tr>
+        <tr>
+            <td>メールアドレス</td>
+            <td><%= f.text_field :email %></td>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+<div class="col-lg-3">
 <%= f.submit '編集内容を保存' %>
-
+</div>
 <% end %>
 
+
+<div class="col-lg-9">
 <%= link_to '退会する', customers_unsubscribe_path %>
+</div>
+</div>
+</div>

@@ -1,5 +1,7 @@
+<div class = "container">
 <h4>注文確認確認</h4>
-<div class="col">
+<div class="row">
+<div class="cl-lg-6">
 <table>
   <thead>
     <tr>
@@ -13,24 +15,41 @@
   <tbody>
     <% @cart_items.each do |cart_item| %>
       <tr>
-        <td><%= image_tag cart_item.item.get_image %></td>
-        <td><%= cart_item.item.name %></td>
+        <td><%= image_tag cart_item.item.get_image(100,100) %>
+            <%= cart_item.item.name %>
+        </td>
         <td><%= cart_item.item.with_tax_price %></td>
         <td><%= cart_item.amount %></td>
         <td><%= cart_item.subtotal %></td>
       </tr>
     <% end %>
   </tbody>
-  </table>
-    <div>送料<%= @order.postage %></div>
-    <div>商品合計<%= @total %></div>
-    <div>請求金額<%= @order.billing_amount %></div>
+</table>
+</div>
+<div class="cl-lg-6">
+<table>
+  <tr>
+    <td>送料</td>
+    <td><%= @order.postage %></td>
+  </tr>
+  <tr>
+    <td>商品合計</td>
+    <td><%= @total %></td>
+  </tr>
+  <tr>
+    <td>請求金額</td>
+    <td><%= @order.billing_amount %></td>
+  </tr>
+</table>
+</div>
+</div>
 
   <h4>支払方法</h4>
   <%= @order.payment_method_i18n %>
 
   <h4>お届け先</h4>
-  〒<%= @order.shipping_postal_code %><%= @order.shipping_addrress %><%= @order.shipping_name %>
+  〒<%= @order.shipping_postal_code %><%= @order.shipping_addrress %></br>
+    <%= @order.shipping_name %>
 
   <%= form_with model: @order, url: orders_path do |f|%>
   <%= f.hidden_field :postage,value: @order.postage %>
@@ -44,4 +63,4 @@
 
   <% end %>
 
- </div>
+</div>

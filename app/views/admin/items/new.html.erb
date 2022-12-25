@@ -1,10 +1,10 @@
 <div class = "container">
 <h2>商品新規登録</h2>
 
+
+ <%= form_with model: @item, url:admin_items_path, method: :post do |f| %>
 <table>
  <tbody>
- <%= form_with model: @item, url:admin_items_path, method: :post do |f| %>
-
  <tr>
   <td>商品画像</td>
   <td><%= f.file_field :image %></td>

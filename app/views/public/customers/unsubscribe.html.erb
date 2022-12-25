@@ -1,10 +1,18 @@
+<div class = "container">
 <h2>退会しますか?</h2>
 
 <h4>
-  退会すると、会員登録情報やこれまでの購入履歴が閲覧できなくなります。
+  退会すると、会員登録情報や</br>
+  これまでの購入履歴が閲覧できなくなります。</br>
   退会する場合は、「退会する」をクリックしてください。
 </h4>
-
+<div class="row">
+<div class="col-lg-3">
 <%= link_to "退会しない", mypage_path %>
+</div>
 
-<%= link_to "退会する", customers_withdraw_path, method: :patch %>
+<div class="col-lg-9">
+<%= link_to "退会する", customers_withdraw_path, method: :patch, "data-confirm" => "本当に削除しますか？" %>
+</div>
+</div>
+</div>

@@ -1,31 +1,55 @@
+<div class = "container">
 <h4>注文履歴詳細</h4>
+<div class="row">
+<div class="col-lg-4">
+<h5>注文情報</h5>
 
-<h7>注文情報</h7>
+<table>
+  <tr>
+    <td>注文日</td>
+    <td><%= @order.created_at %></td>
+  </tr>
 
-  <h7>注文日</h7>
-  <p><%= @order.created_at %></p>
+  <tr>
+    <td>配送先</td>
+    <td><%= @order.shipping_addrress %></td>
+  </tr>
 
-  <h7>配送先</h7>
-  <p><%= @order.shipping_addrress %></p>
+  <tr>
+    <td>支払方法</td>
+    <td><%= @order.payment_method_i18n %></td>
+  </tr>
 
-  <h7>支払方法</h7>
-  <p><%= @order.payment_method_i18n %></p>
+  <tr>
+    <td>ステータス</td>
+    <td><%= Order.order_statuses_i18n[@order.order_status] %></td>
+  </tr>
+</table>
+</div>
 
-  <h7>ステータス</h7>
-  <p><%= Order.order_statuses_i18n[@order.order_status] %></p>
+<div class="col-lg-4">
+<h5>請求情報</h5>
 
-<h7>請求情報</h7>
+<table>
+  <tr>
+    <td>商品合計</td>
+    <td><%= @total %></td>
+  </tr>
 
-  <h7>商品合計</h7>
-  <p><%= @total %></p>
+  <tr>
+    <td>配送料</td>
+    <td><%= @order.postage %></td>
+  </tr>
 
-  <h7>配送料</h7>
-  <p><%= @order.postage %></p>
+  <tr>
+    <td>ご請求額</td>
+    <td><%= @order.billing_amount %></td>
+  </tr>
+</table>
+</div>
+</div>
 
-  <h7>ご請求額</h7>
-  <p><%= @order.billing_amount %></p>
-
-<h7>注文内容</h7>
+<h5>注文内容</h5>
 
   <table>
   <thead>
@@ -48,3 +72,4 @@
     <% end %>
   </tbody>
 </table>
+</div>
